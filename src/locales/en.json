@@ -1,0 +1,74 @@
+{
+  "langChangeBtn": "Chinese",
+  "name": "Jerry Chen",
+  "navList1": "Overview",
+  "navList2": "Personal",
+  "navList3": "Information Center",
+  "allData": [
+    {
+      "show": 1,
+      "title": "Personal Center",
+      "links": [
+        "Notifications",
+        "Sticky Notes",
+        "Proxy Job Approval",
+        "Payroll Details",
+        "Expense Application",
+        "Performance Evaluation Report"
+      ]
+    },
+    {
+      "show": 0,
+      "title": "Work Matters",
+      "links": [
+        "Task List",
+        "Task Handover"
+      ]
+    },
+    {
+      "show": 0,
+      "title": "Scheduling Management",
+      "links": [
+        "Pre-scheduling",
+        "Schedule Query"
+      ]
+    },
+    {
+      "show": 0,
+      "title": "Account Management",
+      "links": [
+        "Settings",
+        "Notification Settings",
+        "Login Records Inquiry",
+        "Google Integration Settings",
+        "Microsoft Integration Settings",
+        "Line Integration Settings",
+        "Wechat Integration Settings"
+      ]
+    },
+    {
+      "show": 0,
+      "title": "Attendance Management",
+      "links": [
+        "Attendance Records",
+        "Attendance Exception Details",
+        "Leave Application",
+        "Leave Cancellation Records",
+        "Outgoing Registration",
+        "Outgoing Check-in/Check-out",
+        "Leave Balance Inquiry",
+        "Leave and Attendance Statistics",
+        "Advance Overtime Application",
+        "Compensatory Leave/Flexible Leave Application"
+      ]
+    },
+    {
+      "show": 0,
+      "title": "Electronic Forms",
+      "links": [
+        "Electronic Form Application",
+        "Electronic Form Approval"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" viewBox="0 0 24 24">
+  <defs>
+    <clipPath id="clip-导航列_顛倒">
+      <rect width="24" height="24"/>
+    </clipPath>
+  </defs>
+  <g id="导航列_顛倒" clip-path="url(#clip-导航列_顛倒)">
+    <rect id="Rectangle_70334" data-name="Rectangle 70334" width="21.6" height="3.36" rx="1.68" transform="translate(1.201 10.32)"/>
+    <rect id="Rectangle_70335" data-name="Rectangle 70335" width="15.6" height="3.36" rx="1.68" transform="translate(7.201 3.121)"/>
+    <rect id="Rectangle_70336" data-name="Rectangle 70336" width="15.6" height="3.36" rx="1.68" transform="translate(7.201 17.521)"/>
+  </g>
+</svg>
