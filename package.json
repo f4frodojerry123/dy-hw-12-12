@@ -1,11 +1,12 @@
 {
-  "name": "my-project-2",
+  "name": "dy-hw-12-12",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --host",
     "build": "vite build",
+    "deploy": "npm run build && node ./deploy/ghpages.cjs",
     "preview": "vite preview"
   },
   "dependencies": {

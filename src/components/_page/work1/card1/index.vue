@@ -24,7 +24,7 @@
         </div>
       </div>
       <div
-        class="border-[#333] border-2 rounded-md text-center px-10 py-2 hover:bg-[#333] hover:text-[#fff] cursor-pointer mr-0 ml-auto"
+        class="border-[#333] border-2 rounded-md text-center px-10 py-2 md:hover:bg-[#333] md:hover:text-[#fff] cursor-pointer mr-0 ml-auto"
         :class="{'!mr-auto !ml-0': align === 'right'}"
       >
         Lorem

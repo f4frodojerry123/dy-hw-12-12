@@ -6,6 +6,8 @@ import AutoImport from 'unplugin-auto-import/vite';
 import { AntDesignVueResolver } from 'unplugin-vue-components/resolvers'
 import Components from 'unplugin-vue-components/vite'
 export default defineConfig({
+  publicPath: '/dy-hw-12-12/',
+  base: './',
   plugins: [
     vue(),
     Components({

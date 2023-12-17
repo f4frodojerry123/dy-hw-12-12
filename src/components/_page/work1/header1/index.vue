@@ -7,7 +7,7 @@
       <div
         v-for="list in navList"
         :key="list.name"
-        class="navlist-list leading-[60px] whitespace-nowrap md:px-[10px] px-[5px] hover:bg-[#333] hover:text-[#fff] cursor-pointer"
+        class="navlist-list leading-[60px] whitespace-nowrap md:px-[10px] px-[5px] md:hover:bg-[#333] md:hover:text-[#fff] cursor-pointer"
         @click="changePage(list.path)"
       >
       {{ list.name }}

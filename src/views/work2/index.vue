@@ -4,7 +4,7 @@
       <div
         v-for="list in navList"
         :key="list.name"
-        class="md:px-[20px] px-[5px] md:text-sm text-xs hover:bg-black py-[10px] cursor-pointer text-black hover:text-white flex justify-center items-center"
+        class="md:px-[20px] px-[5px] md:text-sm text-xs md:hover:bg-black py-[10px] cursor-pointer text-black md:hover:text-white flex justify-center items-center"
         @click="changePage(list.path)"
       >
         <template v-if="list.name === 'logo'">
@@ -39,12 +39,14 @@
         <div
           v-for="(links, index) in quickLinks"
           :key="index"
-          class="quick-links p-[5px] border border-y-2 border-black hover:bg-black hover:text-white flex-grow flex justify-between"
+          class="quick-links p-[5px] border border-y-2 border-black md:hover:bg-black md:hover:text-white flex-grow flex justify-between"
           :class="{
-            'border-l-2': !index,
-            'border-r-2': index === quickLinks.length - 1,
+            '!border-l-2': !index && !isMobile,
+            '!border-l-0': !index && isMobile,
+            '!border-r-2': index === quickLinks.length - 1 && !isMobile,
+            '!border-r-0': index === quickLinks.length - 1 && isMobile,
           }"
-          @click="changePage(list.path)"
+          @click="changePage(links.path)"
           @mouseenter.stop="hoverIndex = index"
           @mouseleave.stop="hoverIndex = undefined"
         >
@@ -52,7 +54,7 @@
             {{ links.name }}
           </div>
           <img
-            v-if="hoverIndex === index"
+            v-if="hoverIndex === index && !isMobile"
             :src="$requireSafe(`arrow-link2.svg`)"
             alt=""
             class="md:w-[20px] w-[12px] md:h-[20px] h-[12px]" 
@@ -106,7 +108,7 @@
                   recusandae ipsa neque cum. Dignissimos!</span
                 >
                 <div
-                  class="btn bg-gray-400 border-2 border-black text-center w-[120px] p-[10px] px-[5px] hover:bg-black hover:text-white"
+                  class="btn bg-gray-400 border-2 border-black text-center w-[120px] p-[10px] px-[5px] md:hover:bg-black md:hover:text-white"
                 >
                   view project
                 </div>
@@ -123,8 +125,8 @@ import { Swiper, SwiperSlide } from "swiper/vue";
 import "swiper/css";
 const router = useRouter();
 const route = useRoute();
-const changePage = () => {
-  router.push("/work1");
+const changePage = (path) => {
+  router.push(path);
 };
 const hoverIndex = ref(undefined)
 const navList = reactive([
@@ -172,6 +174,7 @@ const quickLinks = reactive([
     path: "/work1",
   },
 ]);
+const isMobile = computed(() => window.innerWidth <= 768)
 </script>
 <style scoped lang="postcss">
 .title {
