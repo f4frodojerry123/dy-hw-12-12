@@ -4,7 +4,7 @@
       <div
         v-for="list in navList"
         :key="list.name"
-        class="px-[20px] hover:bg-black py-[10px] cursor-pointer text-black hover:text-white flex justify-center items-center"
+        class="md:px-[20px] px-[5px] md:text-sm text-xs hover:bg-black py-[10px] cursor-pointer text-black hover:text-white flex justify-center items-center"
         @click="changePage(list.path)"
       >
         <template v-if="list.name === 'logo'">
@@ -21,49 +21,69 @@
         </template>
       </div>
     </div>
-    <div class="banner flex bg-white justify-center space-x-[20px] mb-[5px]">
-      <div class="flex flex-col justify-center p-[20px]">
+    <div class="banner flex bg-white justify-center ms:space-x-[20px] space-x-[5px] mb-[5px]">
+      <div class="flex flex-col justify-center md:p-[20px] p-[10px]">
         <span class="title"> Hello, </span>
         <span class="title"> Im Mac. </span>
         <span> I'm a free retro Webflow template made by </span>
         <span class="underline decoration-2 font-bold"> DY Cor. </span>
       </div>
-      <div class="img-container p-[20px] py-[80px]">
+      <div class="img-container md:p-[20px] p-[10px] md:py-[80px] py-[100px]">
         <img :src="$requireSafe(`mac-banner.svg`)" alt="" />
       </div>
     </div>
     <div class="swiper-container bg-white flex flex-col items-center">
       <div
-        class="quick-links-container flex justify-between translate-y-[-50%] bg-gray-300 w-[80%] cursor-pointer"
+        class="quick-links-container flex justify-between translate-y-[-50%] bg-gray-300 md:w-[80%] w-full cursor-pointer md:text-sm text-xs"
       >
         <div
           v-for="(links, index) in quickLinks"
           :key="index"
-          class="quick-links p-[5px] border border-y-2 border-black hover:bg-black hover:text-white flex-grow"
+          class="quick-links p-[5px] border border-y-2 border-black hover:bg-black hover:text-white flex-grow flex justify-between"
           :class="{
             'border-l-2': !index,
             'border-r-2': index === quickLinks.length - 1,
           }"
           @click="changePage(list.path)"
+          @mouseenter.stop="hoverIndex = index"
+          @mouseleave.stop="hoverIndex = undefined"
         >
           <div>
             {{ links.name }}
           </div>
+          <img
+            v-if="hoverIndex === index"
+            :src="$requireSafe(`arrow-link2.svg`)"
+            alt=""
+            class="md:w-[20px] w-[12px] md:h-[20px] h-[12px]" 
+          />
+          <img 
+            v-else
+            :src="$requireSafe(`arrow-link.svg`)"
+            alt=""
+            class="md:w-[20px] w-[12px] md:h-[20px] h-[12px]"
+          />
         </div>
       </div>
 
-      <div class="w-[80%] my-[50px]">
+      <div class="md:w-[80%] w-[95%] my-[50px]">
         <span class="swiper-title text-4xl font-black"> Projects </span>
         <swiper
           :speed="500"
-          :slides-per-view="2.3"
-          :space-between="50"
+          :space-between="10"
+          :breakpoints="{ 
+            320:{ slidesPerView:1},
+            875:{ slidesPerView:1.5, spaceBetween: 20, },
+            1060:{ slidesPerView:2.3, spaceBetween: 50, }
+            }"
           class="!mt-[50px] !p-[10px]"
           slide-to-clicked-slide
           grabCursor
         >
           <swiper-slide v-for="(item, index) in 4" :key="index">
-            <div class="border border-black card-shadow min-w-[350px]">
+            <div
+              class="border-2 border-black md:shadow-[0_5px_3px_3px_black]"
+            >
               <div
                 class="slider-title flex bg-gray-400 border-b-2 border-black py-[5px]"
               >
@@ -106,6 +126,7 @@ const route = useRoute();
 const changePage = () => {
   router.push("/work1");
 };
+const hoverIndex = ref(undefined)
 const navList = reactive([
   {
     name: "logo",
@@ -154,13 +175,9 @@ const quickLinks = reactive([
 </script>
 <style scoped lang="postcss">
 .title {
-  @apply text-5xl font-black;
+  @apply md:text-5xl text-xl font-black;
 }
 .dot {
   @apply w-[10px] h-[10px] rounded-full border-2 bg-white mx-0 my-auto ml-1;
-}
-
-.card-shadow {
-  box-shadow: 10px 5px 5px black;
 }
 </style>

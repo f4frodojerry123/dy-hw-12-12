@@ -1,6 +1,6 @@
 <template>
   <div class="work-1">
-    <header-1 class="mb-10 px-[20px] max-w-[1440px] min-w-[500px] mx-auto"></header-1>
+    <header-1 class="mb-10 px-[20px] max-w-[1440px] mx-auto"></header-1>
     <card-1
       v-for="(card, index) in cardList"
       :key="index"
@@ -14,6 +14,8 @@
   
 </template>
 <script setup>
+import header1 from  '../../components/_page/work1/header1/index.vue'
+import card1 from  '../../components/_page/work1/card1/index.vue'
 const cardList = reactive([
   {
     imgPath: 'work1-1.jpg',
